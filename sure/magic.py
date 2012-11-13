@@ -26,7 +26,7 @@ is_cpython = (
 if is_cpython:
 
     import ctypes
-    from types import DictProxyType
+    from types import MappingProxyType
 
     Py_ssize_t = \
         hasattr(ctypes.pythonapi, 'Py_InitModule4_64') \
@@ -47,7 +47,7 @@ if is_cpython:
         name = klass.__name__
         target = getattr(klass, '__dict__', name)
 
-        if not isinstance(target, DictProxyType):
+        if not isinstance(target, MappingProxyType):
             return target
 
         proxy_dict = SlotsProxy.from_address(id(target))
