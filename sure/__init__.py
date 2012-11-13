@@ -760,7 +760,7 @@ class DeepComparison(object):
 
     def is_simple(self, obj):
         return isinstance(obj, (
-            int, long, float, basestring,
+            int, float, basestring,
         ))
 
     def compare_complex_stuff(self, X, Y):
